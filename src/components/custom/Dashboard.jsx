@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import Card from './Card'
+import { useState, useEffect } from 'react'
+
 import {
     LineChart,
     Line,
@@ -17,13 +17,12 @@ import {
     Leaf,
     Sprout
 } from 'lucide-react';
-import { onValue, ref } from 'firebase/database';
-import { database } from '@/firebase/firebase';
+
 
 
 function Dashboard() {
 
-    const [data, setData] = useState({});
+
 
     const soilData = [
         { name: 'Jan', pH: 6.5, moisture: 32, temperature: 18, nitrogen: 45, phosphorus: 35 },
@@ -64,25 +63,6 @@ function Dashboard() {
     };
 
 
-    useEffect(() => {
-        const dataRef = ref(database, 'sensor');
-        
-        onValue(dataRef, (snapshot) => {
-            if (snapshot.exists()) {
-                setData(snapshot.val());
-            } else {
-                console.log('no data available');
-            }
-        })
-
-        return () => {
-        }
-    }, []);
-
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
-
     return (
 
 
@@ -91,8 +71,6 @@ function Dashboard() {
                 <div className='flex items-end gap-4 '>
                     <h1 className='flex items-center gap-3 text-3xl font-bold '><Sprout className='scale-150 text-green-400' /> SmartKrishi</h1>
                     <h2 className="text-2xl font-bold text-gray-800">Soil Parameters Analysis</h2>
-                    <h2>Nitrogen Data:</h2>
-                    <pre>{JSON.stringify(data.Nitrogen, null, 2)}</pre>
                 </div>
                 <div className="space-x-2">
                     {Object.keys(parameterConfig).map(param => (

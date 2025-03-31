@@ -22,8 +22,6 @@ import {
 
 function Dashboard() {
 
-
-
     const soilData = [
         { name: 'Jan', pH: 6.5, moisture: 32, temperature: 18, nitrogen: 45, phosphorus: 35 },
         { name: 'Feb', pH: 6.7, moisture: 28, temperature: 20, nitrogen: 50, phosphorus: 38 },

@@ -18,7 +18,6 @@ function Application() {
                         <h1></h1>
                     </div>
                     <div className="space-x-4 flex items-center">
-
                         <a href="#features" className="text-green-700 hover:text-green-900">Features</a>
                         <a href="#how-it-works" className="text-green-700 hover:text-green-900">How It Works</a>
                         <h1 className=''>Welcome back, Prashant</h1>

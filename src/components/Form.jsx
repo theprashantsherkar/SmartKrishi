@@ -50,7 +50,7 @@ export default function Form({ label, isLogin }) {
 
       // await new Promise(r=>setTimeout(r, 2000));
 
-      navigate('/dashboard')
+      navigate('/app');
     } catch (err) {
       setError("An error occurred during login. Please try again.");
       console.log(error);

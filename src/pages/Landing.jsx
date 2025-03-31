@@ -8,9 +8,7 @@ import Footer from '@/components/custom/Footer'
 function Landing() {
   return (
     <>
-    
       <div className="min-h-screen bg-green-50 flex flex-col">
-
       <Navbar />
       <Hero />
       <Features />

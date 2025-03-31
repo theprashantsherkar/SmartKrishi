@@ -70,7 +70,7 @@ function Dashboard() {
             <div className="flex justify-between items-center mb-6">
                 <div className='flex items-end gap-4 '>
                     <h1 className='flex items-center gap-3 text-3xl font-bold '><Sprout className='scale-150 text-green-400' /> SmartKrishi</h1>
-                    <h2 className="text-2xl font-bold text-gray-800">Soil Parameters Analysis</h2>
+                    <h2 className="text-xl font-bold text-gray-800">Soil Parameters Analysis</h2>
                 </div>
                 <div className="space-x-2">
                     {Object.keys(parameterConfig).map(param => (

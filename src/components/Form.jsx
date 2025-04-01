@@ -84,7 +84,7 @@ export default function Form({ label, isLogin }) {
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <Input id="password" type="password" value={password} placeholder="*****" onChange={(e) => setPassword(e.target.value)} />
             </div>
           </div>
 

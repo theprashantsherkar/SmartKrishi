@@ -7,6 +7,7 @@ import Landing from './pages/Landing';
 import { Toaster } from 'react-hot-toast';
 import Values from './pages/Values';
 import Application from './pages/Application';
+import Pricing from './pages/Pricing';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/app' element={<Application />} />
         <Route path='/realtime' element={ <Values/>} />
+        <Route path='/pricing' element={<Pricing/>}/>
       </Routes>
       <Toaster />
     </Router>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { Check, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/Button"
 import { Card } from "@/components/ui/card"
 
 const Benefit = ({

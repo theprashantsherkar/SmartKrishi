@@ -1,10 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {ImagesSlider} from '@/components/ui/images-slider';
 
 function Hero() {
+
+const images = ['/image.jpg', 'scene1.webp', 'scene2.webp', 'scene3.webp'];
+
   return (
-      <header className="flex-grow flex items-center container mx-auto px-6 py-16">
-          <div className="w-1/2">
+      <header className="flex-grow flex items-center container mx-auto px-6 py-16 h-[90vh]">
+          <div className="w-1/2 h-fit">
               <h2 className="text-5xl font-bold text-green-900 mb-6">
                   Precision Agriculture, Powered by Technology
               </h2>
@@ -20,12 +24,8 @@ function Hero() {
                   </button>
               </div>
           </div>
-          <div className="w-1/2">
-              <img
-                  src="image.jpg"
-                  alt="SmartKrishi Dashboard"
-                  className="rounded-lg shadow-xl"
-              />
+          <div className="w-1/2 h-3/4 rounded-xl overflow-hidden">
+              <ImagesSlider images={images}/>
           </div>
       </header>
   )

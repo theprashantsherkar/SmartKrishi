@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { onValue, ref } from 'firebase/database';
 import { database } from '@/firebase/firebase';
 import Card from '@/components/custom/Card';
@@ -14,6 +14,7 @@ import {
   SnailIcon
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { CropContext } from '@/context/CropContext';
 
 
 
@@ -22,6 +23,10 @@ function Values() {
   const [data, setData] = useState({});
   const [insect, setInsect] = useState();
   const [waterPump, setWaterPump] = useState(false);
+  const [fertPump, setFertPump] = useState(false);
+  const [fertilizer, setFertilizer] = useState("");
+
+  const {crop, city} = useContext(CropContext);
 
   useEffect(() => {
     const dataRef = ref(database, 'sensor');
@@ -53,6 +58,7 @@ setInsect(JSON.stringify(data.Insect));
   return (
       <div className='h-screen flex flex-col justify-center items-center gap-8'>
       <div className='text-4xl font-bold'>Real time data</div>
+      <h1>(Crop: {crop}, City: {city})</h1>
       <div className='text-center border border-gray-300 px-5 py-3 rounded-md hover:scale-105 hover:shadow-md hover:shadow-slate-300 transition-all hover:cursor-pointer'>
         <h1 className='text-2xl font-bold flex items-center justify-center gap-2'><SnailIcon className='text-orange-500'/>Insect Detection</h1>
         <p className='font-bold text-xl'>{insect == 1?"Insect Detected":(insect == 2?"Butterfly detected":"No Insects")}</p> 
@@ -79,7 +85,16 @@ setInsect(JSON.stringify(data.Insect));
 </h1>
 <div>
   <Button variant={"default"} size={"lg"} className='bg-black text-white' onClick={() => { setWaterPump(!waterPump) }}>{waterPump ? "Turn Off Water Pump" : "Turn On Water Pump"}</Button>
+
+  <select name="" id="" value={fertilizer} onChange={(e) => { setFertilizer(e.target.value) }} className='border border-gray-300 rounded-md p-2 mx-4'>
+    <option value="" disabled>Select Fertilizer</option>
+    <option value="Nitrogen">Nitrogen</option>
+    <option value="Phosphorous">Phosphorous</option>
+    <option value="Potassium">Potassium</option>
+
+  </select>
   
+  <Button variant={"default"} size={"lg"} className='bg-black text-white' onClick={() => { setFertPump(!fertPump) }}>{fertPump ? `Turn Off ${fertilizer} Pump` : `Turn On ${fertilizer} Pump`}</Button>
 </div>
     </div>
   )

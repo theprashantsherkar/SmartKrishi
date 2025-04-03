@@ -11,17 +11,17 @@ import {
   Sprout,
   AlarmSmoke,
   CloudLightning,
-  CloudSnow,
-  CloudDrizzle,
-  CloudFog,
-  CloudHail,
+  SnailIcon
 } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 
 
 
 function Values() {
 
   const [data, setData] = useState({});
+  const [insect, setInsect] = useState();
+  const [waterPump, setWaterPump] = useState(false);
 
   useEffect(() => {
     const dataRef = ref(database, 'sensor');
@@ -38,6 +38,10 @@ function Values() {
     }
   }, []);
 
+  useEffect(()=>{
+setInsect(JSON.stringify(data.Insect));
+  }, [data])
+
   useEffect(() => {
     console.log(data);
   }, [data]);
@@ -49,6 +53,12 @@ function Values() {
   return (
       <div className='h-screen flex flex-col justify-center items-center gap-8'>
       <div className='text-4xl font-bold'>Real time data</div>
+      <div className='text-center border border-gray-300 px-5 py-3 rounded-md hover:scale-105 hover:shadow-md hover:shadow-slate-300 transition-all hover:cursor-pointer'>
+        <h1 className='text-2xl font-bold flex items-center justify-center gap-2'><SnailIcon className='text-orange-500'/>Insect Detection</h1>
+        <p className='font-bold text-xl'>{insect == 1?"Insect Detected":(insect == 2?"Butterfly detected":"No Insects")}</p> 
+      </div>
+
+      <h1 className='text-2xl font-bold'>Soil Parameters:</h1>
       <div className='flex gap-4'>
         <Card title={"Nitrogen"} amount={JSON.stringify(data.Nitrogen)} unit={"ppm"} icon={<Sprout />} colors={"text-green-500"} />
         <Card title={"Phosphorus"} amount={JSON.stringify(data.Phosphorus)} unit={"ppm"} icon={<CloudLightning />} colors={"text-blue-500"} />
@@ -64,7 +74,13 @@ function Values() {
         <Card title={"Rain"} amount={JSON.stringify(data.Rain)} unit={""} icon={<CloudRain />} colors={"text-blue-500"} />
 
       </div>
-
+<h1 className='text-2xl font-bold'>
+  Pump Operators:
+</h1>
+<div>
+  <Button variant={"default"} size={"lg"} className='bg-black text-white' onClick={() => { setWaterPump(!waterPump) }}>{waterPump ? "Turn Off Water Pump" : "Turn On Water Pump"}</Button>
+  
+</div>
     </div>
   )
 }

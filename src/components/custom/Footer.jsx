@@ -13,6 +13,7 @@ function Footer() {
                   <a href="#" className="hover:text-green-200">Contact</a>
               </div>
           </div>
+          
       </footer>
   )
 }

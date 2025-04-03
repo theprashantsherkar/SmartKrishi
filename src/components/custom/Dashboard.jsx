@@ -15,7 +15,8 @@ import {
     Sun,
     CloudRain,
     Leaf,
-    Sprout
+    Sprout,
+    AlarmSmoke
 } from 'lucide-react';
 
 
@@ -23,16 +24,21 @@ import {
 function Dashboard() {
 
     const soilData = [
-        { name: 'Jan', pH: 6.5, moisture: 32, temperature: 18, nitrogen: 45, phosphorus: 35 },
-        { name: 'Feb', pH: 6.7, moisture: 28, temperature: 20, nitrogen: 50, phosphorus: 38 },
-        { name: 'Mar', pH: 6.6, moisture: 35, temperature: 22, nitrogen: 55, phosphorus: 42 },
-        { name: 'Apr', pH: 6.8, moisture: 40, temperature: 25, nitrogen: 60, phosphorus: 46 },
-        { name: 'May', pH: 6.9, moisture: 45, temperature: 28, nitrogen: 65, phosphorus: 50 },
+        { name: 'Jan', pH: 6.5, moisture: 32, temperature: 18, nitrogen: 45, phosphorus: 35, potassium: 20 },
+        { name: 'Feb', pH: 6.7, moisture: 28, temperature: 20, nitrogen: 50, phosphorus: 38, potassium: 22 },
+        { name: 'Mar', pH: 6.6, moisture: 35, temperature: 22, nitrogen: 55, phosphorus: 42, potassium: 25 },
+        { name: 'Apr', pH: 6.8, moisture: 40, temperature: 25, nitrogen: 60, phosphorus: 46, potassium: 28 },
+        { name: 'May', pH: 6.9, moisture: 45, temperature: 28, nitrogen: 65, phosphorus: 50, potassium: 30 },
     ];
 
     const [selectedParameter, setSelectedParameter] = useState('moisture');
 
     const parameterConfig = {
+        potassium: {
+            icon: <AlarmSmoke className="text-orange-500" />,
+            color: '#FBBF24',
+            unit: 'ppm'
+        },
         moisture: {
             icon: <Droplet className="text-blue-500" />,
             color: '#3B82F6',

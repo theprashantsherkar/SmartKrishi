@@ -103,7 +103,7 @@ function Values() {
       </div>
       <div className='flex gap-4'>
         <Card title={"Smoke"} amount={JSON.stringify(data.smoke)} unit={""} icon={<AlarmSmoke />} colors={"text-red-500"} />
-        <Card title={"Soil Moisture"} amount={JSON.stringify(data.soilmositure)} unit={"%"} icon={<Droplet />} colors={"text-blue-500"} />
+        <Card title={"Soil Moisture"} amount={JSON.stringify(data.soilmositure)} unit={""} icon={<Droplet />} colors={"text-blue-500"} />
         <Card title={"Temperature"} amount={JSON.stringify(data.temperature)} unit={"`C"} icon={<Thermometer />} colors={"text-red-500"} />
         <Card title={"Rain"} amount={JSON.stringify(data.Rain)} unit={""} icon={<CloudRain />} colors={"text-blue-500"} />
 

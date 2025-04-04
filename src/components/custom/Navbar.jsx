@@ -22,9 +22,12 @@ function Navbar() {
                 </div>
             </nav>
             <nav className="bg-white shadow-md px-6 py-6 sm:hidden flex justify-between items-center">
-                <div className="flex items-center">
-                    <Sprout className="text-green-600 mr-2" size={32} />
-                    <h1 className="text-2xl font-bold text-green-800">SmartKrishi</h1>
+                <div className="flex items-center justify-between w-full">
+                    <div className='flex items-center justify-center'><Sprout className="text-green-600 mr-2" size={32} />
+                    <h1 className="text-2xl font-bold text-green-800">SmartKrishi</h1></div>
+                    <Link to={'/login'} className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                        Login
+                    </Link>
                 </div>
             </nav>
 

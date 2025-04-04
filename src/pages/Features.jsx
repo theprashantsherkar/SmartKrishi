@@ -16,7 +16,7 @@ function Features() {
               <h3 className="text-4xl font-bold text-center text-green-900 mb-12">
                   Smart Features for Modern Farming
               </h3>
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid sm:grid-cols-3 grid-rows-3 gap-8">
                   {[
                       {
                           icon: <Satellite className="text-green-600" size={48} />,

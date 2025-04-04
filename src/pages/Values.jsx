@@ -75,11 +75,9 @@ function Values() {
 
   useEffect(() => {
     setInsect(JSON.stringify(data.Insect));
+    console.log(data);
   }, [data])
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   if (!data.Nitrogen || !data.Potassium || !data.humidity || !data.pH) {
     return <div className='h-screen flex items-center justify-center'>Loading...</div>;
